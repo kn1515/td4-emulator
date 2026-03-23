@@ -1,0 +1,21 @@
+/**
+ * TD4エミュレータのグローバルスタイル
+ */
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: #0d1117;
+  color: #c9d1d9;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}

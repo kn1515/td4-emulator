@@ -1,0 +1,310 @@
+/**
+ * TD4エミュレータのスタイル
+ */
+
+/* メインレイアウト */
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Courier New', monospace;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #444;
+  padding-bottom: 16px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #61dafb;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.app-main {
+  display: flex;
+  gap: 24px;
+}
+
+.left-panel {
+  flex: 1;
+  min-width: 0;
+}
+
+.right-panel {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .app-main {
+    flex-direction: column;
+  }
+}
+
+/* パネル共通スタイル */
+.editor-panel,
+.registers-panel,
+.memory-panel,
+.controls-panel,
+.io-panel {
+  background: #1e1e2e;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  color: #61dafb;
+  border-bottom: 1px solid #333;
+  padding-bottom: 8px;
+}
+
+/* エディタ */
+.code-editor {
+  width: 100%;
+  min-height: 300px;
+  background: #0d1117;
+  color: #c9d1d9;
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 12px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.code-editor:focus {
+  outline: none;
+  border-color: #61dafb;
+}
+
+/* ボタン */
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #61dafb;
+  color: #000;
+  margin-top: 8px;
+}
+
+.btn-success {
+  background: #2ea043;
+  color: #fff;
+}
+
+.btn-danger {
+  background: #da3633;
+  color: #fff;
+}
+
+.btn-warning {
+  background: #d29922;
+  color: #000;
+}
+
+/* 操作パネル */
+.controls-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* エラー表示 */
+.error-list {
+  margin-top: 12px;
+  background: #2d1b1b;
+  border: 1px solid #da3633;
+  border-radius: 4px;
+  padding: 12px;
+}
+
+.error-list h3 {
+  margin: 0 0 8px;
+  color: #da3633;
+  font-size: 0.9rem;
+}
+
+.error-item {
+  color: #f85149;
+  font-size: 13px;
+  padding: 2px 0;
+}
+
+/* レジスタテーブル */
+.register-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.register-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #333;
+}
+
+.reg-label {
+  color: #61dafb;
+  font-weight: bold;
+  width: 60px;
+}
+
+.reg-value {
+  color: #fff;
+  text-align: center;
+  width: 40px;
+}
+
+.reg-binary {
+  color: #8b949e;
+  text-align: right;
+  font-size: 13px;
+}
+
+/* メモリテーブル */
+.memory-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.memory-table th {
+  padding: 4px 8px;
+  text-align: left;
+  color: #8b949e;
+  border-bottom: 1px solid #444;
+  font-weight: normal;
+}
+
+.memory-table td {
+  padding: 3px 8px;
+  border-bottom: 1px solid #222;
+}
+
+.mem-addr {
+  color: #61dafb;
+  width: 60px;
+}
+
+.mem-hex {
+  color: #fff;
+  width: 40px;
+}
+
+.mem-bin {
+  color: #8b949e;
+}
+
+/* 現在のPC位置をハイライト */
+.current-pc {
+  background: #1a3a2a;
+}
+
+.current-pc td {
+  color: #3fb950 !important;
+}
+
+/* 入出力パネル */
+.io-section {
+  margin-bottom: 12px;
+}
+
+.io-section:last-child {
+  margin-bottom: 0;
+}
+
+.led-row,
+.switch-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 8px 0;
+}
+
+.led {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  border: 2px solid #444;
+}
+
+.led-on {
+  background: #2ea043;
+  color: #3fb950;
+  border-color: #3fb950;
+  box-shadow: 0 0 12px #3fb950;
+}
+
+.led-off {
+  background: #1e1e2e;
+  color: #444;
+  border-color: #333;
+}
+
+.switch {
+  width: 48px;
+  height: 32px;
+  border-radius: 4px;
+  border: 2px solid #444;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: bold;
+  transition: all 0.15s;
+}
+
+.switch-on {
+  background: #61dafb;
+  color: #000;
+  border-color: #61dafb;
+}
+
+.switch-off {
+  background: #1e1e2e;
+  color: #666;
+  border-color: #333;
+}
+
+.io-value {
+  text-align: center;
+  color: #8b949e;
+  font-size: 12px;
+  margin-top: 4px;
+}
