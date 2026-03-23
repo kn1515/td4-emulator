@@ -151,11 +151,6 @@ export function step(state: CpuState): CpuState {
 
   next.pc = nextPc;
 
-  // PCが16を超えた場合は停止（実際にはMASK_4BITで0に戻る）
-  if (next.pc >= 16) {
-    next.pc = 0;
-  }
-
   return next;
 }
 
